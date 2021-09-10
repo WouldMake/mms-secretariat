@@ -1,7 +1,7 @@
-package com.example.mesttra.secretariat.service;
+package br.com.mesttra.secretariat.service;
 
-import com.example.mesttra.secretariat.data.SecretariatRepository;
-import com.example.mesttra.secretariat.model.Secretariat;
+import br.com.mesttra.secretariat.data.SecretariatRepository;
+import br.com.mesttra.secretariat.model.Secretariat;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,4 +14,6 @@ public class SecretariatService {
     public SecretariatService(SecretariatRepository secretariatRepository) { this.secretariatRepository = secretariatRepository; }
 
     public List<Secretariat> listSecretariats() { return secretariatRepository.findAll(); }
+
+    public Secretariat addSecretariat(Secretariat secretariat) { return secretariatRepository.save(secretariat); }
 }

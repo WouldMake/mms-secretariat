@@ -1,4 +1,4 @@
-package com.example.mesttra.secretariat.enums;
+package br.com.mesttra.secretariat.enums;
 
 public enum Folder {
 

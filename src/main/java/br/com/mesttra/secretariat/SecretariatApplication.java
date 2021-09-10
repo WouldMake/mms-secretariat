@@ -1,4 +1,4 @@
-package com.example.mesttra.secretariat;
+package br.com.mesttra.secretariat;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

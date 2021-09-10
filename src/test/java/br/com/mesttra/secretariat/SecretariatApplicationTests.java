@@ -1,4 +1,4 @@
-package com.example.mesttra.secretariat;
+package br.com.mesttra.secretariat;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
