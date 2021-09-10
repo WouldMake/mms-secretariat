@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/secretariats")
@@ -18,9 +19,12 @@ public class SecretariatController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Secretariat addSecretariat(@Valid @RequestBody Secretariat secretariat) { return secretariatService.addSecretariat(secretariat); }
+    public Secretariat addSecretariat(@Valid @RequestBody Secretariat secretariat) { return this.secretariatService.addSecretariat(secretariat); }
 
     @GetMapping
     public List<Secretariat> listSecretariats() { return this.secretariatService.listSecretariats(); }
+
+    @GetMapping("/{id}")
+    public Optional<Secretariat> getSecretariat(@PathVariable Long id) { return this.secretariatService.getSecretariat(id); }
 
 }
