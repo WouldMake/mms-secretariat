@@ -1,7 +1,9 @@
 package br.com.mesttra.secretariat.service;
 
 import br.com.mesttra.secretariat.data.SecretariatRepository;
+import br.com.mesttra.secretariat.exception.BusinessException;
 import br.com.mesttra.secretariat.model.Secretariat;
+import br.com.mesttra.secretariat.request.ChangeInvestigationRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,4 +21,19 @@ public class SecretariatService {
     public Secretariat addSecretariat(Secretariat secretariat) { return secretariatRepository.save(secretariat); }
 
     public Optional<Secretariat> getSecretariat(Long id) { return this.secretariatRepository.findById(id); }
+
+    public Secretariat changeInvestigation(Long id, ChangeInvestigationRequest changeInvestigationRequest) throws BusinessException {
+
+        Optional<Secretariat> secretariatOptional = this.secretariatRepository.findById(id);
+
+        if (secretariatOptional.isEmpty())
+        {
+            throw new BusinessException("Secretariat not found.");
+        }
+
+        Secretariat secretariat = secretariatOptional.get();
+        secretariat.setUnderInvestigation(changeInvestigationRequest.getUnderInvestigation());
+
+        return  this.secretariatRepository.save(secretariat);
+    }
 }
