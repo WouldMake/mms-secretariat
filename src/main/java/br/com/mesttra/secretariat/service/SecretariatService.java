@@ -6,6 +6,7 @@ import br.com.mesttra.secretariat.model.Secretariat;
 import br.com.mesttra.secretariat.request.ChangeInvestigationRequest;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,8 +21,9 @@ public class SecretariatService {
 
     public Secretariat addSecretariat(Secretariat secretariat) { return secretariatRepository.save(secretariat); }
 
-    public Optional<Secretariat> getSecretariat(Long id) { return this.secretariatRepository.findById(id); }
+    public Optional<Secretariat> findSecretariat(Long id) { return this.secretariatRepository.findById(id); }
 
+    @Transactional
     public Secretariat changeInvestigation(Long id, ChangeInvestigationRequest changeInvestigationRequest) throws BusinessException {
 
         Optional<Secretariat> secretariatOptional = this.secretariatRepository.findById(id);

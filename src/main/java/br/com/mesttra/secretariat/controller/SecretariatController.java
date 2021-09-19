@@ -27,7 +27,7 @@ public class SecretariatController {
     public List<Secretariat> listSecretariats() { return this.secretariatService.listSecretariats(); }
 
     @GetMapping("/{id}")
-    public Optional<Secretariat> getSecretariat(@PathVariable Long id) { return this.secretariatService.getSecretariat(id); }
+    public Optional<Secretariat> findSecretariat(@PathVariable Long id) { return this.secretariatService.findSecretariat(id); }
 
     @PatchMapping("{id}/investigation")
     public Secretariat changeInvestigation(@PathVariable Long id, @Valid @RequestBody ChangeInvestigationRequest changeInvestigationRequest) throws BusinessException {
